@@ -40,7 +40,7 @@ spec:
       spec:
         accessModes: [ "ReadWriteOnce" ]
         {{ if not .Values.openshift }}
-        storageClassName: standard
+        storageClassName: hostpath
         volumeMode: Filesystem
         {{ end }}
         resources:
