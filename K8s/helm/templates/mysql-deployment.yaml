@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: mysql
   labels:
+    app: mysql
+    version: v1
     service: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: mysql
+      version: v1
       service: mysql
   template:
     metadata:
       labels:
+        app: mysql
+        version: v1
         service: mysql
     spec:
       {{ if .Values.psp.enabled }}

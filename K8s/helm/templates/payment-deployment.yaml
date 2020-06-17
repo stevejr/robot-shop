@@ -3,17 +3,23 @@ kind: Deployment
 metadata:
   name: payment
   labels:
+    app: payment
+    version: v1
     service: payment
     stage: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: payment
+      version: v1
       service: payment
       stage: prod
   template:
     metadata:
       labels:
+        app: payment
+        version: v1
         service: payment
         stage: prod
     spec:

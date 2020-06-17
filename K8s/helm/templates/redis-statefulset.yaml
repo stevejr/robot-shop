@@ -2,17 +2,23 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
+    app: redis
+    version: v1
     service: redis
   name: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: redis
+      version: v1
       service: redis
   serviceName: redis
   template:
     metadata:
       labels:
+        app: redis
+        version: v1
         service: redis
     spec:
       {{ if .Values.psp.enabled }}

@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: mongodb
   labels:
+    app: mongodb
+    version: v1
     service: mongodb
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: mongodb
+      version: v1
       service: mongodb
   template:
     metadata:
       labels:
+        app: mongodb
+        version: v1
         service: mongodb
     spec:
       {{ if .Values.psp.enabled }}

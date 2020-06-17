@@ -3,16 +3,28 @@ kind: Deployment
 metadata:
   name: catalogue
   labels:
+    app: catalogue
+    version: v1
     service: catalogue
+# {{- if .Values.extraLabels }}
+# {{ toYaml .Values.extraLabels | indent 4 }}
+# {{- end }}
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: catalogue
+      version: v1
       service: catalogue
   template:
     metadata:
       labels:
+        app: catalogue
+        version: v1
         service: catalogue
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 8 }}
+{{- end }}
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop

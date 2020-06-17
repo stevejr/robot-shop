@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: cart
   labels:
+    app: cart
+    version: v1
     service: cart
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: cart
+      version: v1
       service: cart
   template:
     metadata:
       labels:
+        app: cart
+        version: v1
         service: cart
     spec:
       {{ if .Values.psp.enabled }}

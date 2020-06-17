@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: payment
   labels:
+    app: payment
     service: payment
 spec:
   ports:
-  - name: http
+  - name: http-payment
     port: 8080
     targetPort: 8080
   selector:
+    app: payment
     service: payment

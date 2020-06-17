@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: dispatch
   labels:
+    app: dispatch
+    version: v1
     service: dispatch
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: dispatch
+      version: v1
       service: dispatch
   template:
     metadata:
       labels:
+        app: dispatch
+        version: v1
         service: dispatch
     spec:
       {{ if .Values.psp.enabled }}

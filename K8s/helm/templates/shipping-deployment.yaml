@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: shipping
   labels:
+    app: shipping
+    version: v1
     service: shipping
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: shipping
+      version: v1
       service: shipping
   template:
     metadata:
       labels:
+        app: shipping
+        version: v1
         service: shipping
     spec:
       {{ if .Values.psp.enabled }}

@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: shipping
   labels:
+    app: shipping
     service: shipping
 spec:
   ports:
-  - name: http
+  - name: http-shipping
     port: 8080
     targetPort: 8080
   selector:
+    app: shipping
     service: shipping

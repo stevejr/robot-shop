@@ -3,12 +3,14 @@ kind: Service
 metadata:
   name: ratings
   labels:
+    app: ratings
     service: ratings
 spec:
   ports:
-  - name: http
+  - name: http-ratings
     port: 80
     targetPort: 80
   selector:
+    app: ratings
     service: ratings
 

@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: rabbitmq
   labels:
+    app: rabbitmq
+    version: v1
     service: rabbitmq
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: rabbitmq
+      version: v1
       service: rabbitmq
   template:
     metadata:
       labels:
+        app: rabbitmq
+        version: v1
         service: rabbitmq
     spec:
       {{ if .Values.psp.enabled }}

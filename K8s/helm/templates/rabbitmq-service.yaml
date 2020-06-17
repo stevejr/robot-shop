@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: rabbitmq
   labels:
+    app: rabbitmq
     service: rabbitmq
 spec:
   ports:
@@ -16,4 +17,5 @@ spec:
     port: 4369
     targetPort: 4369
   selector:
+    app: rabbitmq
     service: rabbitmq

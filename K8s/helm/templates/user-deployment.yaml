@@ -3,15 +3,21 @@ kind: Deployment
 metadata:
   name: user
   labels:
+    app: user
+    version: v1
     service: user
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: user
+      version: v1
       service: user
   template:
     metadata:
       labels:
+        app: user
+        version: v1
         service: user
     spec:
       {{ if .Values.psp.enabled }}

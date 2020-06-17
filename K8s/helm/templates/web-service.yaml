@@ -3,13 +3,15 @@ kind: Service
 metadata:
   name: web
   labels:
+    app: web
     service: web
 spec:
   ports:
-  - name: http
+  - name: http-web
     port: 8080
     targetPort: 8080
   selector:
+    app: web
     service: web
   {{ if .Values.nodeport }}
   type: NodePort
