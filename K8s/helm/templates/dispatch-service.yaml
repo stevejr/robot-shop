@@ -10,7 +10,7 @@ metadata:
 spec:
   clusterIP: None
   ports:
-  - name: headless
+  - name: tcp-headless
     port: 55555
     targetPort: 0
   selector:
