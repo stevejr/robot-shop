@@ -1,0 +1,18 @@
+# syntax = docker/dockerfile:1.0-experimental
+FROM node:10 as base
+
+WORKDIR /opt/server
+
+COPY package.json /opt/server/
+
+RUN npm install
+
+COPY server.js /opt/server/
+
+FROM base as dev
+
+RUN npm install -g nodemon
+
+FROM base as prod
+
+CMD ["node", "server.js"]

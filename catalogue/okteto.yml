@@ -1,0 +1,10 @@
+name: catalogue-v2
+image: stevejr/rs-catalogue:dev
+# labels: 
+#   app: catalogue
+#   version: v1
+#image: robotshop/rs-catalogue:latest
+#command: ["nodemon", "server.js"]
+#command: ["node", "server.js"]
+command: ["bash"]
+workdir: /opt/server

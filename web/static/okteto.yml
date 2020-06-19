@@ -1,0 +1,7 @@
+name: web2
+image: robotshop/rs-web:latest
+command:
+- "/root/entrypoint.sh"
+workdir: /usr/share/nginx/html
+forward:
+  - 8080:8080
